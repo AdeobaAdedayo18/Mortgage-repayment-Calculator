@@ -1,0 +1,437 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+    font-family: "Plus Jakarta Sans", sans-serif;
+
+}
+
+
+body{
+    height: 100vh;
+    background-color: hsl(202, 86%, 94%);
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+
+}
+.main-container{
+    background-color: white;
+    align-items: center;
+    height: auto;
+    /* max-height: 100%; */
+    width: 900px;
+    max-height: 100%;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+
+.main-interface{
+    background-color: white;
+    height: 100%;
+    margin-top: 45px;
+    padding: 30px;
+    /* border-radius: 20px; */
+}
+
+.result-interface{
+    background-color: hsl(202, 55%, 16%);
+    height: 100%;
+    
+    /* border-radius: 20px; */
+    /* border-bottom-left-radius: 70px; */
+    border-bottom-left-radius: 70px 70px;
+}
+
+.interface-title{
+    color: hsl(202, 55%, 16%);
+    font-size: 25px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.interface-title span{
+    color: hsl(200, 26%, 54%);
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: underline;
+
+}
+
+
+.user-details{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 30px;
+}
+.input-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.input-container span,
+.mortgages span{
+    color: hsl(200, 24%, 40%);  
+}
+
+.input-field{
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+    border: 1px solid  hsl(200, 24%, 40%);
+    border-radius: 5px;
+    padding: 0px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+
+    /* position: absolute; */
+
+}
+
+.input-field.error{
+    border-color: hsl(4, 69%, 50%);
+}
+
+.input-field:hover,
+.input-field:focus{
+    border: 1px solid hsl(202, 55%, 16%);
+    z-index: 1000;
+    cursor: pointer;
+}
+
+
+
+.input-field input{
+    border: none;
+    outline: none;
+    padding: 10px;
+    width: 100%;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.input-field span {
+    background-color: hsl(202, 86%, 94%);
+    /* position: relative; */
+    color: hsl(200, 24%, 40%);
+    padding: 0px 15px 0px 15px;
+    height: 100%;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+}
+
+.input-field.error span{
+    background-color: hsl(4, 69%, 50%);
+    color: white;
+}
+
+
+
+
+.bi{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+
+.mortgage-type{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 10px;
+}
+
+.mortgage-cover{
+    border: 1px solid hsl(200, 24%, 40%);
+    border-radius: 5px;
+    /* padding: 15px; */
+    font-weight: 700;
+}
+
+.mortgage-cover:hover{
+    border: 1px solid hsl(61, 70%, 52%);
+    cursor: pointer;
+}
+.mortgage-cover span{
+    color: hsl(202, 55%, 16%);
+    
+}
+.mortgage-cover label{
+    display: flex;
+    align-items: center;
+    height: 40px;
+    width: 100%;
+}
+
+.mortgage-cover label {
+    cursor: pointer;
+}
+
+.mortgage-cover label .dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 2px solid hsl(200, 24%, 40%);
+    margin-right: 10px;
+    margin-left: 10px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.mortgage-cover label .dot::after {
+    content: '';
+    width: 9px;
+    height: 9px;
+    background-color: hsl(61, 70%, 52%);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: all 0.3s ease;
+}
+
+#dot-1:checked ~ .mortgage-type .mortgage-cover label .one::after,
+#dot-2:checked ~ .mortgage-type .mortgage-cover label .two::after {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#dot-1:checked ~ .mortgage-type .mortgage-cover label .one,
+#dot-2:checked ~ .mortgage-type .mortgage-cover label .two {
+    border-color: hsl(61, 70%, 52%);
+    
+}
+
+#dot-1:checked ~ .mortgage-type .mortgage-cover label .first,
+#dot-2:checked ~ .mortgage-type .mortgage-cover label .second{
+   background-color: hsl(62, 58%, 88%);
+   /* width: 100%; */
+   /* height: 100%; */
+   
+}
+
+.mortgages input{
+    display: none;
+}
+.button{
+    padding-top: 30px;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.button button{
+    background-color: hsl(61, 70%, 52%);
+    color: hsl(202, 55%, 16%);
+    display: flex;
+    gap: 7px;
+    font-weight: 700;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    border: none;
+    font-size: 17px;
+    padding: 0px 4px 0px 4px;
+    height: 45px;
+    width: 250px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+}
+
+.button button:hover{
+    background-color: hsl(61,95%,72%);
+
+}
+
+.error{
+    color: hsl(4, 69%, 50%);
+    font-size: 14px;
+}
+
+
+
+.result-interface{
+    height: 100%;
+    /* width: 100%; */
+    /* padding: 30px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* justify-items: center; */
+}
+.pre-result-interface{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 90%;
+}
+
+.pre-result-interface.close{
+    display: none;
+}
+
+.pre-result-interface svg{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+}
+
+.pre-result-interface .title{
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.pre-result-interface .sub-text{
+    color: hsl(200, 24%, 40%);
+    font-size: 16px;
+    text-align: center;
+}
+
+.post-result-interface{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 30px;
+    width: 80%;
+    height: 100%;
+    /* align-items: center; */
+    /* justify-content: center; */
+   
+}
+
+.post-result-interface.close{
+    display: none;
+}
+
+.post-result-interface .title{
+    color: white;
+    font-size: 22px;
+    display: flex;
+    font-weight: 700;
+    text-align: left;
+}
+
+.post-result-interface .subtext,
+.upper-result .title,
+.lower-result .title{
+    font-size: 14px;
+    color: white;
+    opacity: 0.7;
+    line-height: 1.5;
+
+}
+
+
+.post-result-interface .result-modal{
+    background-color: hsl(200, 57%, 9%);
+    height: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 7px;
+    border-top: 3px solid hsl(61, 70%, 52%);
+}
+
+.upper-result,
+.lower-result{
+    
+    color: hsl(61, 70%, 52%);
+    font-size: 50px;
+    font-weight: 700;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    padding: 15px;
+}
+.upper-result{
+    height: 60%;
+    border-bottom: 1px solid rgb(162, 162, 162);
+
+}
+
+
+
+.upper-result .title,
+.lower-result .title{
+    font-weight: 500;
+
+}
+
+.lower-result{
+    height: 40%;
+    font-size: 23px;
+    color: white;
+}
+
+
+
+@media screen and (max-width: 750px) {
+    
+    body {
+            height: 100%;
+            padding: 10px;
+            padding-right: 20px;
+            padding-left: 20px;
+            margin: 0;
+    }
+    
+    
+    .main-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        height: 100%;
+        overflow-y: auto; /* Add vertical scrolling if needed */
+    }
+
+    .main-interface, 
+    .result-interface {
+        /* width: 60%; */
+        padding: 20px;
+    }
+
+    .result-interface{
+        border-bottom-left-radius: 0px;
+    }
+
+    .user-details {
+        gap: 10px;
+    }
+
+    .user-details{
+        gap: 10px;
+    }
+    
+}
+
+
+
+
