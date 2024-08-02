@@ -10,7 +10,12 @@ const totalRepay = document.getElementById("total-repayment");
 const preResult = document.getElementById("pre-result");
 const postResult = document.getElementById("post-result");
 
-
+amount.onkeyup = function(){
+    var removeChar = this.value.replace(/[^0-9]/g, '');
+    this.value = removeChar;
+    var formatedNumber = this.value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    this.value = formatedNumber;
+}
 
 form.addEventListener("submit", e=> {
     e.preventDefault();
@@ -98,7 +103,7 @@ function submitSuccess(){
     let monthlyPayment = 0;
     let totalRepayment = 0;
     console.log("All fields complete");
-    const amountValue = parseFloat(amount.value.trim());
+    const amountValue = parseFloat(amount.value.trim().replace(/,/g, ''));
     const yearsValue = parseInt(years.value.trim());
     const intrestValue = parseFloat(intrest.value.trim());
     const isDot1Checked = dot1.checked;
@@ -109,8 +114,9 @@ function submitSuccess(){
         
     }
 
-    repay.innerHTML = monthlyPayment;
-    totalRepay.innerHTML = totalRepayment;
+    repay.innerHTML = parseFloat(monthlyPayment).toLocaleString();
+    totalRepay.innerHTML = parseFloat(totalRepayment).toLocaleString();
+    
     postResult.classList.remove("close");
     preResult.classList.add("close");
 
