@@ -396,8 +396,6 @@ input[type=number]::-webkit-outer-spin-button {
     body {
             height: 100%;
             padding: 10px;
-            padding-right: 20px;
-            padding-left: 20px;
             margin: 0;
     }
     
